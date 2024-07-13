@@ -1,0 +1,13 @@
+{
+  "name": "dataacquisitionschedulerpoc",
+  "version": "1.0.0",
+  "description": "Data Acquisition Scheduler - Proof of Concept",
+  "main": "index.js",
+  "type": "module",
+  "author": "Raul <raul@glogovetan.com>",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.19.2",
+    "json2": "^0.4.0"
+  }
+}

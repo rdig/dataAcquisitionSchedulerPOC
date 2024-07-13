@@ -1,5 +1,6 @@
 import express from 'express';
 import { createHash } from 'crypto';
+import { isUrl } from 'check-valid-url';
 
 let workerCount = 2;
 let data = [];
@@ -132,13 +133,15 @@ server.get('/reset', (req, res) => {
 
 // Add more urls to queue
 server.post('/add', (req, res) => {
-  // TODO Add data array;
   // Need to use splice again, as observe doesn't work with concat
   // And push is kinda costly
   let requestData = req.body;
   requestData = Array.isArray(requestData) ? requestData : [];
+  requestData = requestData
+    .filter((url) => typeof url === 'string')
+    .filter(isUrl);
   data.splice(data.length, 0, ...requestData);
-  res.status(200).json({ message: 'URLs added', data: req.body });
+  res.status(200).json({ message: `${requestData.length} URLs added`, data: requestData });
 })
 
 // Start server

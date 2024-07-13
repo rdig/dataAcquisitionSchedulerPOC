@@ -7,6 +7,7 @@
   "author": "Raul <raul@glogovetan.com>",
   "license": "MIT",
   "dependencies": {
+    "check-valid-url": "^0.1.0",
     "express": "^4.19.2",
     "json2": "^0.4.0"
   }
